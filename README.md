@@ -152,4 +152,6 @@ docker build -t your-image-name .
 docker run -p 8080:8080 your-image-name
 ```
 
+11. Open a web browser and navigate to http://localhost:8080
+
 Your application should now be running inside a Docker container!
