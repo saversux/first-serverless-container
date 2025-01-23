@@ -25,7 +25,7 @@ To create a GitHub account, follow these steps:
 
 You now have a GitHub account!
 
-## Installing Go (Golang) (optional)
+## Installing Go (Golang)
 
 To install Go, follow these steps:
 
@@ -38,3 +38,118 @@ go version
 ```
 
 You should see the Go version information if the installation was successful.
+
+## Creating a Simple Go Application
+
+To create a simple Go application, follow these steps:
+
+1. Create a new file named `main.go` in your project directory.
+2. Open the `main.go` file in a text editor and add the following content:
+
+    ```go
+    package main
+
+    import (
+        "fmt"
+        "net/http"
+    )
+
+    func helloHandler(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintf(w, "Hello, World!")
+    }
+
+    func main() {
+        http.HandleFunc("/", helloHandler)
+        fmt.Println("Server is running on port 8080")
+        http.ListenAndServe(":8080", nil)
+    }
+    ```
+
+3. Save the `main.go` file.
+4. Initialize a new Go module in your project directory by running the following command in your terminal:
+
+    ```sh
+    go mod init your-module-name
+    ```
+
+5. Download the necessary dependencies by running:
+
+    ```sh
+    go mod tidy
+    ```
+
+This Go application sets up a basic web server that responds with "Hello, World!" when accessed.
+
+
+## Building a Dockerfile
+
+To start building a Dockerfile, follow these steps:
+
+1. Create a new file named `Dockerfile` in the root of your project directory.
+2. Open the `Dockerfile` in a text editor and define the base image. For example, to use the official Golang image, add the following line:
+
+    ```Dockerfile
+    FROM golang:1.17-alpine
+    ```
+
+3. Set the working directory inside the container:
+
+    ```Dockerfile
+    WORKDIR /app
+    ```
+
+4. Copy the current directory contents into the container:
+
+    ```Dockerfile
+    COPY . .
+    ```
+
+5. Install any needed dependencies:
+
+    ```Dockerfile
+    RUN go mod tidy
+    ```
+
+6. Build the Go app:
+
+    ```Dockerfile
+    RUN go build -o main .
+    ```
+
+7. Make port 8080 available to the world outside this container:
+
+    ```Dockerfile
+    EXPOSE 8080
+    ```
+
+8. Define the command to run the executable:
+
+    ```Dockerfile
+    CMD ["./main"]
+    ```
+
+Your `Dockerfile` should look like this:
+
+    ```Dockerfile
+    FROM golang:1.17-alpine
+    WORKDIR /app
+    COPY . .
+    RUN go mod tidy
+    RUN go build -o main .
+    EXPOSE 8080
+    CMD ["./main"]
+    ```
+
+9. Save the `Dockerfile` and build the Docker image by running the following command in your terminal:
+
+    ```sh
+    docker build -t your-image-name .
+    ```
+
+10. Run the Docker container:
+
+    ```sh
+    docker run -p 8080:8080 your-image-name
+    ```
+
+Your application should now be running inside a Docker container!
