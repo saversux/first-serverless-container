@@ -63,7 +63,7 @@ func main() {
     fmt.Println("Server is running on port 8080")
     http.ListenAndServe(":8080", nil)
 }
-    ```
+``` 
 
 3. Save the `main.go` file.
 4. Initialize a new Go module in your project directory by running the following command in your terminal:
