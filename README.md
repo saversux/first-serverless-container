@@ -13,6 +13,31 @@ docker --version
 
 You should see the Docker version information if the installation was successful.
 
+## Installing Ubuntu WSL Distribution
+
+To install the Ubuntu WSL distribution on Windows 10, follow these steps:
+
+1. Open the Microsoft Store.
+2. Search for "Ubuntu".
+3. Select the Ubuntu distribution you want to install (e.g., Ubuntu 20.04 LTS).
+4. Click on the "Get" button to install the distribution.
+5. Once the installation is complete, launch the Ubuntu application from the Start menu.
+6. Follow the on-screen instructions to complete the initial setup, including creating a new user account and password.
+
+You now have the Ubuntu WSL distribution installed on your Windows 10 machine!
+
+## Installing Visual Studio Code with Remote - WSL Extension
+
+To install Visual Studio Code with the Remote - WSL extension, follow these steps:
+
+1. Download Visual Studio Code from the [official Visual Studio Code website](https://code.visualstudio.com/).
+2. Follow the installation instructions for your operating system.
+3. Launch Visual Studio Code.
+4. Open the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or by pressing `Ctrl+Shift+X`.
+5. Search for "Remote - WSL" and click the "Install" button to install the extension.
+6. Once installed, open the Command Palette by pressing `Ctrl+Shift+P` and type `Remote-WSL: New Window` to open a new VS Code window connected to your WSL instance.
+
+
 ## Creating a GitHub Account
 
 To create a GitHub account, follow these steps:
