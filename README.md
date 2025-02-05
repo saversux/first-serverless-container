@@ -114,7 +114,7 @@ To start building a Dockerfile, follow these steps:
 2. Open the `Dockerfile` in a text editor and define the base image. For example, to use the official Golang image, add the following line:
 
 ```Dockerfile
-FROM golang:1.17-alpine
+FROM golang:1.23-alpine
 ```
 
 3. Set the working directory inside the container:
@@ -156,7 +156,7 @@ CMD ["./main"]
 Your `Dockerfile` should look like this:
 
 ```Dockerfile
-FROM golang:1.17-alpine
+FROM golang:1.23-alpine
 WORKDIR /app
 COPY . .
 RUN go mod tidy
